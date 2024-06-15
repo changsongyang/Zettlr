@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Zettlr 2.3.0\n"
 "Report-Msgid-Bugs-To: https://github.com/Zettlr/Zettlr/issues\n"
-"POT-Creation-Date: 2024-06-11 09:31+0000\n"
+"POT-Creation-Date: 2024-06-15 13:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -203,7 +203,7 @@ msgid "No open document"
 msgstr "Nenhum documento aberto"
 
 #: source/tmp/win-main/PopoverDocInfo.vue.ts:51
-#: source/tmp/win-main/App.vue.ts:226
+#: source/tmp/win-main/App.vue.ts:234
 #: source/tmp/win-main/file-manager/FileItem.vue.ts:122
 #: source/tmp/win-main/file-manager/FileItem.vue.ts:185
 #: source/common/modules/markdown-editor/statusbar/info-fields.ts:72
@@ -212,7 +212,7 @@ msgid "%s characters"
 msgstr "%s caracteres"
 
 #: source/tmp/win-main/PopoverDocInfo.vue.ts:53
-#: source/tmp/win-main/App.vue.ts:227
+#: source/tmp/win-main/App.vue.ts:235
 #: source/tmp/win-main/file-manager/util/PopoverFileProps.vue.ts:56
 #: source/tmp/win-main/file-manager/util/PopoverDirProps.vue.ts:140
 #: source/tmp/win-main/file-manager/FileItem.vue.ts:124
@@ -222,109 +222,109 @@ msgstr "%s caracteres"
 msgid "%s words"
 msgstr "%s palavras"
 
-#: source/tmp/win-main/App.vue.ts:212
+#: source/tmp/win-main/App.vue.ts:220
 #, javascript-format
 msgid "%s selected"
 msgstr ""
 
 #. Multiple selections --> indicate
-#: source/tmp/win-main/App.vue.ts:221
+#: source/tmp/win-main/App.vue.ts:229
 #, javascript-format
 msgid "%s selections"
 msgstr ""
 
-#: source/tmp/win-main/App.vue.ts:242
+#: source/tmp/win-main/App.vue.ts:250
 msgid "File manager"
 msgstr ""
 
-#: source/tmp/win-main/App.vue.ts:247
+#: source/tmp/win-main/App.vue.ts:255
 msgid "Global search"
 msgstr ""
 
-#: source/tmp/win-main/App.vue.ts:255
+#: source/tmp/win-main/App.vue.ts:263
 #: source/app/service-providers/menu/menu.darwin.ts:174
 #: source/app/service-providers/menu/menu.win32.ts:148
 msgid "Open Workspace …"
 msgstr "Abrir Área de Trabalho ..."
 
-#: source/tmp/win-main/App.vue.ts:261
+#: source/tmp/win-main/App.vue.ts:269
 msgid "View stats"
 msgstr ""
 
-#: source/tmp/win-main/App.vue.ts:267
+#: source/tmp/win-main/App.vue.ts:275
 msgid "Tags"
 msgstr ""
 
-#: source/tmp/win-main/App.vue.ts:274
+#: source/tmp/win-main/App.vue.ts:282
 msgid "Open the settings dialog"
 msgstr ""
 
-#: source/tmp/win-main/App.vue.ts:281
+#: source/tmp/win-main/App.vue.ts:289
 #: source/win-main/file-manager/util/dir-item-context.ts:37
 #: source/app/service-providers/menu/menu.darwin.ts:116
 #: source/app/service-providers/menu/menu.win32.ts:90
 msgid "New File…"
 msgstr "Novo ficheiro..."
 
-#: source/tmp/win-main/App.vue.ts:288
+#: source/tmp/win-main/App.vue.ts:296
 #: source/app/service-providers/menu/menu.darwin.ts:207
 #: source/app/service-providers/menu/menu.win32.ts:172
 msgid "Previous file"
 msgstr "Ficheiro anterior"
 
-#: source/tmp/win-main/App.vue.ts:296
+#: source/tmp/win-main/App.vue.ts:304
 #: source/app/service-providers/menu/menu.darwin.ts:218
 #: source/app/service-providers/menu/menu.win32.ts:183
 msgid "Next file"
 msgstr "Próximo ficheiro"
 
-#: source/tmp/win-main/App.vue.ts:309
+#: source/tmp/win-main/App.vue.ts:317
 msgid "Export the current file"
 msgstr ""
 
-#: source/tmp/win-main/App.vue.ts:315
+#: source/tmp/win-main/App.vue.ts:323
 msgid "Toggle readability mode"
 msgstr ""
 
-#: source/tmp/win-main/App.vue.ts:327
+#: source/tmp/win-main/App.vue.ts:335
 #: source/common/modules/markdown-editor/tooltips/formatting-toolbar.ts:62
 msgid "Comment"
 msgstr "Comentário"
 
-#: source/tmp/win-main/App.vue.ts:334
+#: source/tmp/win-main/App.vue.ts:342
 #: source/common/modules/markdown-editor/tooltips/formatting-toolbar.ts:52
 msgid "Link"
 msgstr "Link"
 
-#: source/tmp/win-main/App.vue.ts:341
+#: source/tmp/win-main/App.vue.ts:349
 #: source/common/modules/markdown-editor/tooltips/formatting-toolbar.ts:57
 msgid "Image"
 msgstr "Imagem"
 
-#: source/tmp/win-main/App.vue.ts:348
+#: source/tmp/win-main/App.vue.ts:356
 msgid "Tasklist"
 msgstr ""
 
-#: source/tmp/win-main/App.vue.ts:355
+#: source/tmp/win-main/App.vue.ts:363
 #: source/common/modules/markdown-editor/context-menu/default-menu.ts:201
 msgid "Insert Table"
 msgstr "Inserir Tabela"
 
-#: source/tmp/win-main/App.vue.ts:362
+#: source/tmp/win-main/App.vue.ts:370
 msgid "Footnote"
 msgstr ""
 
-#: source/tmp/win-main/App.vue.ts:380
+#: source/tmp/win-main/App.vue.ts:388
 msgid "Pomodoro-Timer"
 msgstr ""
 
-#: source/tmp/win-main/App.vue.ts:389
+#: source/tmp/win-main/App.vue.ts:397
 #: source/app/service-providers/menu/menu.darwin.ts:486
 #: source/app/service-providers/menu/menu.win32.ts:469
 msgid "Toggle Sidebar"
 msgstr "Mostrar/esconder barra lateral"
 
-#: source/tmp/win-main/App.vue.ts:396
+#: source/tmp/win-main/App.vue.ts:404
 msgid "Update available"
 msgstr ""
 
