@@ -2,6 +2,16 @@
 
 ## GUI and Functionality
 
+(nothing here)
+
+## Under the Hood
+
+(nothing here)
+
+# 4.5.0
+
+## GUI and Functionality
+
 - **Feature**: Long-running background tasks are now visually indicated with a
   toolbar icon. This allows users to check on longer-running tasks such as
   project exports or the re-indexing of new workspaces and observe the progress
