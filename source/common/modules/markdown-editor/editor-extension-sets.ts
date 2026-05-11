@@ -91,7 +91,7 @@ export interface CoreExtensionOptions {
     pushUpdates: (filePath: string, version: number, updates: Update[]) => Promise<boolean>
   }
   updateListener: (update: ViewUpdate) => void
-  domEventsListeners: DOMEventHandlers<any>
+  domEventsListeners: DOMEventHandlers<unknown>
 }
 
 /**
