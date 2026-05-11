@@ -3,6 +3,7 @@
 ## GUI and Functionality
 
 - Fixed missing click handlers for clicking links in tables (#4694).
+- Fixed an issue that would sometimes open the same link twice.
 
 ## Under the Hood
 
