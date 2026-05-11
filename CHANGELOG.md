@@ -2,7 +2,7 @@
 
 ## GUI and Functionality
 
-(nothing here)
+- Fixed missing click handlers for clicking links in tables (#4694).
 
 ## Under the Hood
 
