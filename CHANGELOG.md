@@ -7,6 +7,7 @@
 - The file manager now uses tabular digits for displaying numbers in filenames.
 - Fixed an issue where code elements had a background color that overlaid the
   selection (#6328).
+- Fixed a wrong font selection for comments.
 
 ## Under the Hood
 

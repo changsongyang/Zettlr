@@ -278,6 +278,9 @@ export const editorTheme = EditorView.baseTheme({
   '.cm-monospace': {
     color: 'var(--zettlr-editor-code-color)',
   },
+  '.cm-block-comment': {
+    font: 'var(--zettlr-editor-font-size) var(--zettlr-editor-code-font)',
+  },
   '.cm-inline-math': {
     color: 'var(--zettlr-editor-code-color)',
   },
