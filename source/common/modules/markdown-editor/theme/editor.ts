@@ -277,7 +277,6 @@ export const editorTheme = EditorView.baseTheme({
 
   '.cm-monospace': {
     color: 'var(--zettlr-editor-code-color)',
-    backgroundColor: 'var(--zettlr-editor-code-bg)',
   },
   '.cm-inline-math': {
     color: 'var(--zettlr-editor-code-color)',
