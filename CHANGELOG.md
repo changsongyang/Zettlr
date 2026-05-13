@@ -13,7 +13,7 @@
 
 ## Under the Hood
 
-(nothing here)
+- Upgrade Electron to `v42.0.0`
 
 # 4.5.0
 
