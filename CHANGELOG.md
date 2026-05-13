@@ -10,6 +10,8 @@
 - Fixed a wrong font selection for comments.
 - Add "Curl quotes" text transform to convert straight quotes to curly (smart)
   quotes, the inverse of the existing "Straighten quotes" transform (#6259).
+- The main window's title now includes the current active file's title. This
+  allows automation that depends on the window title (#6283).
 
 ## Under the Hood
 
