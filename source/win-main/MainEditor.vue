@@ -246,6 +246,7 @@ const editorConfiguration = computed<EditorConfigOptions>(() => {
       replacements: editor.autoCorrect.replacements
     },
     autocompleteSuggestEmojis: editor.autocompleteSuggestEmojis,
+    snippetAutocompleteTriggerCharacter: editor.snippetAutocompleteTriggerCharacter,
     imagePreviewWidth: display.imageWidth,
     imagePreviewHeight: display.imageHeight,
     boldFormatting: editor.boldFormatting,

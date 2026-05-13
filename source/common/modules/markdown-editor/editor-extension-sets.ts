@@ -193,8 +193,7 @@ function getCoreExtensions (options: CoreExtensionOptions): Extension[] {
     autoCloseBracketsConfig,
 
     // Allow configuration of the trigger character
-    autocompleteTriggerCharacter.of(':'),
-    // TODO: autocompleteTriggerCharacter.from(configField, val => val.FINDANAME),
+    autocompleteTriggerCharacter.from(configField, val => val.snippetAutocompleteTriggerCharacter),
 
     // Add the statusbar
     statusbar,
