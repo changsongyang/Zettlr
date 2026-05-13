@@ -13,6 +13,8 @@
   quotes, the inverse of the existing "Straighten quotes" transform (#6259).
 - The main window's title now includes the current active file's title. This
   allows automation that depends on the window title (#6283).
+- The table of contents now clears out when the last file of the editor is
+  closed (#6251).
 
 ## Under the Hood
 

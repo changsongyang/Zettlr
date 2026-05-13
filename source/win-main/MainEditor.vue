@@ -182,6 +182,8 @@ onMounted(() => {
 onBeforeUnmount(() => {
   if (currentEditor !== null) {
     props.persistentStateMap.set(props.file.path, currentEditor.persistentState)
+    // Clear out the table of contents before unmounting the component.
+    windowStateStore.tableOfContents = undefined
     currentEditor.unmount()
   }
 })
