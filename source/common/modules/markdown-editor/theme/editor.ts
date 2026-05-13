@@ -354,6 +354,10 @@ export const editorTheme = EditorView.baseTheme({
   '.cm-highlight': {
     backgroundColor: 'var(--zettlr-editor-highlight-color)',
   },
+  '.cm-strikethrough:not(.cm-code-mark)': {
+    textDecoration: 'line-through',
+    textDecorationThickness: '2px'
+  },
   '.cm-hr':  {
     font: 'var(--zettlr-editor-strong-style) var(--zettlr-editor-font-size) var(--zettlr-editor-font)',
     color: 'var(--zettlr-editor-primary-color)',
