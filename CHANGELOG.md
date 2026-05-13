@@ -8,6 +8,8 @@
 - Fixed an issue where code elements had a background color that overlaid the
   selection (#6328).
 - Fixed a wrong font selection for comments.
+- Add "Curl quotes" text transform to convert straight quotes to curly (smart)
+  quotes, the inverse of the existing "Straighten quotes" transform (#6259).
 
 ## Under the Hood
 
@@ -23,8 +25,6 @@
   as it happens.
 - Add HCL/Terraform fenced code block support (#6302).
 - Fixed Mermaid Chart labels not showing up (#6313).
-- Add "Curl quotes" text transform to convert straight quotes to curly (smart)
-  quotes, the inverse of the existing "Straighten quotes" transform (#6259).
 - Fixed icons in the statusbar not working.
 - Update Spanish (`es-ES`) translations (#6320).
 
