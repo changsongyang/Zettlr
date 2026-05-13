@@ -16,6 +16,7 @@
 ## Under the Hood
 
 - Upgrade Electron to `v42.0.0`
+- Migrate the `openAttachment` utility from `got` to `ky`.
 
 # 4.5.0
 
