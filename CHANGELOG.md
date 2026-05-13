@@ -15,6 +15,8 @@
   allows automation that depends on the window title (#6283).
 - The table of contents now clears out when the last file of the editor is
   closed (#6251).
+- Allow `Escape` to close the search panel regardless of whether it is currently
+  focused (#2970).
 
 ## Under the Hood
 
