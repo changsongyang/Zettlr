@@ -17,6 +17,7 @@
 
 - Upgrade Electron to `v42.0.0`
 - Migrate the `openAttachment` utility from `got` to `ky`.
+- Migrate the LanguageTool API utility from `got` to `ky`.
 
 # 4.5.0
 
