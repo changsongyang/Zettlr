@@ -15,6 +15,7 @@
   selection (#6328).
 - Fixed a wrong font selection for comments.
 - Fixed strikethrough-elements no longer being stricken-through (#6330).
+- Fixed triple-clicks within tables to select entire table cells (#6344; #6100).
 - Add "Curl quotes" text transform to convert straight quotes to curly (smart)
   quotes, the inverse of the existing "Straighten quotes" transform (#6259).
 - The main window's title now includes the current active file's title. This
