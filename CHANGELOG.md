@@ -8,6 +8,14 @@
   colon character (`Pour exemple : cette.`), we now allow different trigger
   characters, relieving the colon where necessary. Currently supported are `/`
   and `%` as alternatives (#5185; #6325).
+- **Change**: This release brings many improvements to the full text search
+  (#6339):
+  - The full text search was completely rewritten to improve performance by 50%
+    to 100%.
+  - The autocompletes for both previous searches and the restrict-to-folder
+    functionalities have been drastically improved and work reliably (#5686).
+  - Ability to switch between case-insensitive and case-sensitive searches.
+  - Improvements in the presentation and layout of search results.
 - Fixed missing click handlers for clicking links in tables (#4694).
 - Fixed an issue that would sometimes open the same link twice.
 - The file manager now uses tabular digits for displaying numbers in filenames.
