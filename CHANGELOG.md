@@ -39,6 +39,8 @@
 - The menubar on Windows is no longer styled using the system's accent color to
   reduce potential distractions for users.
 - Update Brazilian (`pt-BR`) translations (#6348).
+- Fixed TableEditor swap rows/columns commands on macOS. Until now, they were
+  mapped to `Ctrl+Shift+Arrow`, which was misaligned with the main keymap.
 
 ## Under the Hood
 
