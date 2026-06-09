@@ -54,6 +54,7 @@
 - Enforce proper comment styling.
 - The `StartupWMClass` has been switched back to lowercase, since apparently the
   build step has correctly reverted the binary name to lowercase on Linux.
+- Handle symbolic links in chokidar watcher explicitly.
 
 # 4.5.0
 

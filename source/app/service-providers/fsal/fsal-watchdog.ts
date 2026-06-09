@@ -21,6 +21,7 @@ import type ConfigProvider from '@providers/config'
 import path from 'path'
 import type { EventName } from 'chokidar/handler'
 import { WATCHDOG_IGNORE_RE } from '@common/util/ignore-path'
+import { type Stats } from 'fs'
 
 /**
 * Represents an event the watchdog can work with
@@ -81,8 +82,8 @@ export default class FSALWatchdog {
    * @param   {change}    channel  The change channel
    * @param   {Function}  report   A reporter that gets called with eventName and eventPath
    */
-  public on (channel: 'change', report: (eventName: EventName, eventPath: string) => void): any {
-    this.process.on('all', (event, p: string) => {
+  public on (channel: 'change', report: (eventName: EventName, eventPath: string, stats?: Stats) => void): any {
+    this.process.on('all', (event, p, stats) => {
       const basename = path.basename(p)
       const dirname = path.dirname(p)
 
@@ -94,7 +95,7 @@ export default class FSALWatchdog {
       }
 
       this._logger.info(`[WATCHDOG] Emitting event: ${event}:${p}`)
-      report(event, p)
+      report(event, p, stats)
     })
   }
 
