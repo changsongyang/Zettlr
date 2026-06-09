@@ -43,6 +43,8 @@
   mapped to `Ctrl+Shift+Arrow`, which was misaligned with the main keymap.
 - Fixed an issue in the TableEditor where adding new rows could increase the
   amount of surrounding whitespace in the newly inserted rows (#6369).
+- Fixed the alignment command for the TableEditor which previously would clear
+  out the entire column, if the column had no alignment set.
 
 ## Under the Hood
 
