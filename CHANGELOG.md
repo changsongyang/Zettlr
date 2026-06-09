@@ -41,6 +41,8 @@
 - Update Brazilian (`pt-BR`) translations (#6348).
 - Fixed TableEditor swap rows/columns commands on macOS. Until now, they were
   mapped to `Ctrl+Shift+Arrow`, which was misaligned with the main keymap.
+- Fixed an issue in the TableEditor where adding new rows could increase the
+  amount of surrounding whitespace in the newly inserted rows (#6369).
 
 ## Under the Hood
 
