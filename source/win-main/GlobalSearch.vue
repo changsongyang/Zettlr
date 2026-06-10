@@ -33,7 +33,7 @@
       <ButtonControl
         v-bind:label="searchButtonLabel"
         v-bind:inline="true"
-        v-bind:disabled="false"
+        v-bind:disabled="searchIsRunning"
         v-on:click="startSearch()"
       ></ButtonControl>
       <ButtonControl
@@ -45,20 +45,23 @@
     </p>
     <!-- ... as well as two buttons to clear the results or toggle them. -->
     <template v-if="windowStateStore.searchResults.length > 0">
+      <template v-if="!searchIsRunning">
+        <hr>
+        <p>
+          <ButtonControl
+            v-bind:label="clearButtonLabel"
+            v-bind:inline="true"
+            v-on:click="emptySearchResults()"
+          ></ButtonControl>
+          <ButtonControl
+            v-bind:label="toggleButtonLabel"
+            v-bind:inline="true"
+            v-on:click="toggleIndividualResults()"
+          ></ButtonControl>
+        </p>
+      </template>
       <hr>
-      <p v-if="!searchIsRunning && windowStateStore.searchResults.length > 0" style="text-align: center;">
-        <ButtonControl
-          v-bind:label="clearButtonLabel"
-          v-bind:inline="true"
-          v-on:click="emptySearchResults()"
-        ></ButtonControl>
-        <ButtonControl
-          v-bind:label="toggleButtonLabel"
-          v-bind:inline="true"
-          v-on:click="toggleIndividualResults()"
-        ></ButtonControl>
-      </p>
-      <p style="font-size: 14px; padding: 5px 0; text-align: center;">
+      <p style="padding: 5px 0; text-align: center; display: block;">
         {{ resultsMessage }}
       </p>
       <hr>
@@ -129,6 +132,12 @@
         </template>
       </DynamicScroller>
     </template>
+    <template v-else-if="!searchIsRunning && hadNoResult">
+      <hr>
+      <p style="text-align: center; display: block;">
+        {{ noResultsMessage }}
+      </p>
+    </template>
   </div>
 </template>
 
@@ -152,7 +161,7 @@ import ButtonControl from '@common/vue/form/elements/ButtonControl.vue'
 import ProgressControl from '@common/vue/form/elements/ProgressControl.vue'
 import AutocompleteText from '@common/vue/form/elements/AutocompleteText.vue'
 import { trans } from '@common/i18n-renderer'
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import showPopupMenu, { type AnyMenuItem } from '@common/modules/window-register/application-menu-helper'
 import { useConfigStore, useWindowStateStore, useWorkspaceStore } from 'source/pinia'
 import { pathBasename, pathDirname, relativePath } from 'source/common/util/renderer-path-polyfill'
@@ -198,6 +207,7 @@ const searchButtonLabel = trans('Search')
 const cancelButtonLabel = trans('Cancel')
 const clearButtonLabel = trans('Clear search')
 const toggleButtonLabel = trans('Toggle results')
+const noResultsMessage = trans('No results for your search.')
 
 // Again: We have a side effect that trans() cannot be executed during import
 // stage. It needs to be executed after the window registration ran for now. It
@@ -244,7 +254,10 @@ const filter = ref<string>('')
 const restrictToDir = ref<string>('')
 // Whether this search should be case insensitive
 const caseInsensitive = ref<boolean>(true)
+// Search result progress
 const searchProgress = ref(0)
+// Whether the last search had no result
+const hadNoResult = ref(false)
 // A global trigger for the result set trigger. This will determine what
 // the toggle will do to all result sets -- either hide or display them.
 const toggleState = ref<boolean>(false)
@@ -252,6 +265,9 @@ const toggleState = ref<boolean>(false)
 const activeFileIdx = ref<undefined|number>(undefined)
 // The result line index of the most recently clicked search result.
 const activeLineIdx = ref<undefined|number>(undefined)
+
+const searchIsRunning = ref<boolean>(false)
+const shouldStartNewSearch = ref<boolean>(false)
 
 const workspaceStore = useWorkspaceStore()
 const configStore = useConfigStore()
@@ -332,8 +348,8 @@ const filteredSearchResults = computed<SearchResultWrapper[]>(() => {
     })
 })
 
-const searchIsRunning = ref<boolean>(false)
-const shouldStartNewSearch = ref<boolean>(false)
+// Changing the query should reset the no-results message
+watch(query, () => { hadNoResult.value = false })
 
 onMounted(() => {
   queryInputElement.value?.focus()
@@ -341,14 +357,21 @@ onMounted(() => {
   ipcRenderer.on('search-provider', (event, message) => {
     if (message.type === 'search-end') {
       searchIsRunning.value = false
+      hadNoResult.value = filteredSearchResults.value.length === 0
       searchProgress.value = 0
     } else if (message.type === 'search-result') {
-      processSearchResult(message.file as string, message.result as SearchResult, message.progress as number)
+      processSearchResult(message.progress as number, message.file as string, message.result as SearchResult|undefined)
         .catch(err => console.error(err))
     }
   })
 })
 
+/**
+ * Starts a new search
+ *
+ * @param  {string}  overrideQuery  Optional property that can be used to
+ *                                  programmatically set a search.
+ */
 function startSearch (overrideQuery?: string): void {
   // This allows other components to inject a new query when starting a search
   if (overrideQuery !== undefined) {
@@ -372,6 +395,8 @@ function startSearch (overrideQuery?: string): void {
   configStore.setConfigValue('window.recentGlobalSearches', recentSearches.slice(0, 10))
 
   // Now we're good to go!
+  searchProgress.value = 0
+  hadNoResult.value = false
   searchIsRunning.value = true
   toggleState.value = false
   emptySearchResults()
@@ -396,7 +421,20 @@ function startSearch (overrideQuery?: string): void {
     })
 }
 
-async function processSearchResult (absPath: string, result: SearchResult, progress: number): Promise<void> {
+/**
+ * Processes a new search result from main
+ *
+ * @param  {number}                  progress  The current progress in main (0-1)
+ * @param  {string}                  absPath   The filepath that had been searched
+ * @param  {SearchResult|undefined}  result    The search result, if the file contains a result
+ */
+async function processSearchResult (progress: number, absPath: string, result: SearchResult|undefined): Promise<void> {
+  searchProgress.value = progress
+
+  if (result === undefined) {
+    return
+  }
+
   const filename = pathBasename(absPath)
   const root = configStore.config.app.openWorkspaces.find(r => absPath.startsWith(r))
   const relativeDirectoryPath = root !== undefined
@@ -408,24 +446,33 @@ async function processSearchResult (absPath: string, result: SearchResult, progr
     file: {
       path: absPath, filename,
       relativeDirectoryPath,
-      displayName: filename // TODO
+      displayName: filename
     },
     result,
     hideResultSet: toggleState.value,
     weight: result.reduce((acc, cur) => acc + cur.weight, 0)
   }
-  searchProgress.value = progress
-
   windowStateStore.addSearchResult(newResult)
 }
 
+/**
+ * Cancel an in-progress search.
+ *
+ * @param   {boolean}  startNewSearch  Whether to start a new search afterwards
+ */
 function cancelSearch (startNewSearch: boolean = false): void {
   ipcRenderer.invoke('search-provider', { command: 'cancel-search', payload: undefined } satisfies SearchProviderIPCAPI)
     .catch(err => console.error(err))
 
   shouldStartNewSearch.value = startNewSearch
+  searchProgress.value = 0
 }
 
+/**
+ * Empties the current set of search results.
+ *
+ * @return  {void}    [return description]
+ */
 function emptySearchResults (): void {
   windowStateStore.searchResults = []
   toggleState.value = false
@@ -518,6 +565,7 @@ body div#global-search-pane {
   padding: 10px;
   overflow: auto;
   height: 100%;
+  font-size: 13px;
 
   hr {
     margin: 10px 0;

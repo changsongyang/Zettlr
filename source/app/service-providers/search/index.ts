@@ -133,12 +133,10 @@ export class SearchProvider implements ProviderContract {
     this._logger.verbose(`[Search Provider] Searching file ${path.basename(nextFile)}...`)
 
     this.searchFileBoolean(nextFile, this.currentQuery)
-      .then(result => {
-        if (result.length === 0) {
-          // Save some resources both in the IPC and the renderer by not
-          // reporting empty results
-          return
-        }
+      .then(rawResult => {
+        // Save some resources both in the IPC and the renderer by not
+        // reporting empty results. We do so by setting the result as undefined.
+        const result = rawResult.length > 0 ? rawResult : undefined
         const total = this.sumFilesToSearch
         const remaining = this.fileSearchQueue.length
         const progress = (total - remaining) / total
