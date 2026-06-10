@@ -10,6 +10,8 @@
   and `%` as alternatives (#5185; #6325).
 - **Feature**: The tutorial is now also available in Portuguese for new users
   (#6373).
+- **Feature**: The "Remove line breaks" transformation in the editor is now also
+  available via the keyboard shortcut `Cmd/Ctrl-Alt-J` (#5913).
 - **Change**: This release brings many improvements to the full text search
   (#6339):
   - The full text search was completely rewritten to improve performance by 50%
