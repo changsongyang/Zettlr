@@ -113,22 +113,22 @@ export default class FSALWatchdog {
   }
 
   /**
-   * Add one or more additional paths to watch
+   * Watches a path for changes.
    *
-   * @param  {string|readonly string[]}  paths  One or more paths to watch
+   * @param  {string}  path  The path to watch.
    */
-  public watchPath (paths: string | string[]): void {
-    this._logger.verbose(`Starting to watch path(s) ${String(paths)}`)
-    this.process.add(paths)
+  public watchPath (path: string): void {
+    this._logger.verbose(`Starting to watch path ${path}`)
+    this.process.add(path)
   }
 
   /**
-   * Remove one or more paths from the watcher
+   * Removes a path from the watcher.
    *
-   * @param  {string|readonly string[]}  paths  One or more paths to unwatch
+   * @param  {string}  path  The path to unwatch.
    */
-  public unwatchPath (paths: string | string[]): void {
-    this.process.unwatch(paths)
+  public unwatchPath (path: string): void {
+    this.process.unwatch(path)
   }
 
   /**
