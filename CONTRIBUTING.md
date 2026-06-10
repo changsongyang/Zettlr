@@ -63,10 +63,13 @@ You can contribute broadly among four dimensions (there are certainly other ways
 in which you can help!):
 
 1. **Code Contributions**: Fix bugs or implement new features.
-2. **Translations**: Improve the existing translations of the app, or provide
+2. **Test Preview Versions**: Turn on beta notifications in your settings, or
+   [download nightly releases](https://nightly.zettlr.com) to test the app
+   before we publish public releases.
+3. **Translations**: Improve the existing translations of the app, or provide
    new ones.
-3. **Documentation**: Improve the user manual.
-4. **Support**: Help other users get started and answer questions.
+4. **Documentation**: Improve the user manual.
+5. **Support**: Help other users get started and answer questions.
 
 ### Code Contributions
 
@@ -76,19 +79,23 @@ find all information to get started in the [README.md](./README.md) file.
 
 ### Translations
 
-Zettlr utilizes the `gettext` system for translating content. All translations
-reside in the folder `static/lang`. Inside, you will find a set of `*.po` files,
-named with their corresponding language codes (e.g. `fr-FR` for French and
-`pt-BR` for Brazilian Portuguese).
+Zettlr utilizes the [`gettext`](https://www.gnu.org/software/gettext/) system
+for translating content. All translations reside in the
+[`static/lang` directory](./static/lang). Inside, you will find a set of `*.po`
+files, named with their corresponding language codes (e.g. `fr-FR` for French
+and `pt-BR` for Brazilian Portuguese).
 
 To improve upon a translation, simply edit the corresponding `*.po` file using a
 method of your choice. This can be done either with a text editor, or a
-graphical application, such as POedit. After you have modified the translation
-file, open a Pull Request to add your changes to the application.
+graphical application, such as [POedit](https://poedit.net/).
+
+After you have modified the translation file, open a Pull Request to add your
+changes to the application. GitHub has created a great
+[guide on how to open Pull Requests](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files#editing-files-in-another-users-repository).
 
 You can find more info in the
 [documentation](https://docs.zettlr.com/en/getting-started/get-involved/), or
-you can ask our community if you need help!
+you can ask our community if you need help.
 
 ### Documentation
 
