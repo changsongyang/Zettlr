@@ -341,6 +341,7 @@ onMounted(() => {
   ipcRenderer.on('search-provider', (event, message) => {
     if (message.type === 'search-end') {
       searchIsRunning.value = false
+      searchProgress.value = 0
     } else if (message.type === 'search-result') {
       processSearchResult(message.file as string, message.result as SearchResult, message.progress as number)
         .catch(err => console.error(err))
