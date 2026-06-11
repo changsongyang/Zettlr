@@ -53,7 +53,10 @@
 
 ## Under the Hood
 
-- Upgrade Electron to `v42.0.0`.
+- Upgrade Electron to `v42.3.3`.
+- Upgrade Pandoc to `v3.10`.
+- Pinned a transitive dependency of electron forge, `yauzl` to fix a bug on
+  newer Node versions (context: https://github.com/electron/forge/issues/4277).
 - Migrate the `openAttachment` utility from `got` to `ky`.
 - Migrate the LanguageTool API utility from `got` to `ky`.
 - Enforce proper comment styling.
