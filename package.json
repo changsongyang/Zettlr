@@ -153,7 +153,6 @@
     "fsevents": "^2.3.3"
   },
   "resolutions": {
-    "node-gyp": "10.x.x",
     "node-abi": "^3.74.0",
     "katex": "^0.16.21",
     "yauzl": "^3.3.2"
