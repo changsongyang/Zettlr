@@ -50,6 +50,8 @@
   amount of surrounding whitespace in the newly inserted rows (#6369).
 - Fixed the alignment command for the TableEditor which previously would clear
   out the entire column, if the column had no alignment set.
+- Fixed a regression from the previous version that disabled the references list
+  CSS (#6380).
 
 ## Under the Hood
 
