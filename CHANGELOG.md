@@ -20,6 +20,9 @@
     functionalities have been drastically improved and work reliably (#5686).
   - Ability to switch between case-insensitive and case-sensitive searches.
   - Improvements in the presentation and layout of search results.
+- **Change**: On macOS, the default setting for window vibrancy is now off. This
+  makes the file manager opaque, but improves visual design with the new sticky
+  folder headers.
 - Fixed missing click handlers for clicking links in tables (#4694).
 - Fixed an issue that would sometimes open the same link twice.
 - The file manager now uses tabular digits for displaying numbers in filenames.
