@@ -52,6 +52,9 @@
   out the entire column, if the column had no alignment set.
 - Fixed a regression from the previous version that disabled the references list
   CSS (#6380).
+- Fixed a regression from the previous version that could lead to visual
+  artifacts in the thin and expanded file manager modes when switching files
+  (#6385).
 
 ## Under the Hood
 
