@@ -23,6 +23,8 @@
 - **Change**: On macOS, the default setting for window vibrancy is now off. This
   makes the file manager opaque, but improves visual design with the new sticky
   folder headers.
+- Add Elixir syntax highlighting for code blocks; identifiers: `elixir`, `ex`,
+  or `exs` (#6368).
 - Fixed missing click handlers for clicking links in tables (#4694).
 - Fixed an issue that would sometimes open the same link twice.
 - The file manager now uses tabular digits for displaying numbers in filenames.
