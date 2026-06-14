@@ -2,6 +2,16 @@
 
 ## GUI and Functionality
 
+(nothing here)
+
+## Under the Hood
+
+(nothing here)
+
+# 4.6.0
+
+## GUI and Functionality
+
 - **Feature**: Allow changing the trigger character for snippet (and emoji)
   autocomplete. Until now, this was hard-coded to `:` (which is still the
   default). However, since that interferes with the way French speakers use the
