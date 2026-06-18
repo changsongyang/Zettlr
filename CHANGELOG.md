@@ -4,6 +4,8 @@
 
 - Fixed a regression from 4.6.1 where the full-text search would not search any
   open standalone files (#6387).
+- Fixed an issue on macOS where opening a file from Finder with no open main
+  window would not automatically open one (#6391).
 
 ## Under the Hood
 
