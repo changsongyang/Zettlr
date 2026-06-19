@@ -10,7 +10,7 @@
 
 ## Under the Hood
 
-(nothing here)
+- Improve performance of the editor (#6388).
 
 # 4.6.0
 
